@@ -5,9 +5,6 @@
 
 
 
-
-
-
 2. Usuários
 	2.1 Criação de usuários
 	Crie um usuário com as seguintes características:
