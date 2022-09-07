@@ -25,15 +25,10 @@
 	     ->	permissão sudo para todos os comandos, sem solicitação de senha.  	             
 		     	               	             
 		1- criar o usuário 'getup' com o UID 1111 -> 'useradd -u 1111 getup'
-
 		2- incluir o usuario 'getup' no grupo 'wheel' para ter permisssão de 'sudo' -> 'usermod -aG wheel getup'
-
 		3- incluir o usuário 'getup' no grupo bin -> 'usermod -aG bin getup'
-
 		4- modificar o GID do grupo getup para 2222 -> 'groupmod -g 2222 getup'
-
 		5- incluir o usuário 'getup' no grupo getup -> 'usermod -aG getup getup'
-
 		6- usando o comando 'visudo' incluir a informação do usuário 'getup' com os dados 'getup ALL=(ALL) NOPASSWD: ALL'
 
 	![image](https://user-images.githubusercontent.com/109318929/188898632-476f385c-eeb1-43fe-bc94-b8d8bd75ce82.png) ![image](https://user-images.githubusercontent.com/109318929/188898653-07df3e45-2220-4ac1-9ac1-1ca985371cba.png)
@@ -59,12 +54,12 @@
 	3.3 Análise de logs e configurações ssh
 	Utilizando a chave do arquivos id_rsa-desafio-devel.gz.b64 deste repositório, acesso a VM com o usuário devel:
 	
-		– fiz a instalação do git na maquina do desafio e baixei a chave que foi disponibilizada. Em seguida, decodifiquei e descompactei a chave com o comando 		‘ base64 -d id_rsa-desafio-linux-devel.gz.b64 | gzip -d > id_rsa, dessa forma o conteúdo do arquivo pode ser copiado para um novo arquivo, resolvendo 			assim o problema relatado no log. A chave esta com  carriage-return e devia estar com a newline.
+		– fiz a instalação do git na maquina do desafio e baixei a chave que foi disponibilizada. Em seguida, decodifiquei e descompactei a chave com o comando		‘ base64 -d id_rsa-desafio-linux-devel.gz.b64 | gzip -d > id_rsa, dessa forma o conteúdo do arquivo pode ser copiado para um novo arquivo, resolvendo 		assim o problema relatado no log. A chave esta com  carriage-return e devia estar com a newline.
 		
-		fiz também a mudança das permissões do arquivo authorized_keys para permissão de leitura e gravação apenas para o dono do arquivo, usando o comando 		    ‘chmod 600 authorized_keys.
+		- fiz também a mudança das permissões do arquivo authorized_keys para permissão de leitura e gravação apenas para o dono do arquivo, usando o comando		    ‘chmod 600 authorized_keys.
 		
-		Em seguida, fiz um reset da senha do usuário devel, para conseguir fazer a cópia da chave para o computador cliente.
-		Feito isso, usando os mesmos passos dos item 1, foi possível fazer logon com a conta de devel, como podemos ver abaixo
+		- Em seguida, fiz um reset da senha do usuário devel, para conseguir fazer a cópia da chave para o computador cliente.
+		- Feito isso, usando os mesmos passos dos item 1, foi possível fazer logon com a conta de devel, como podemos ver abaixo
 	
 	![image](https://user-images.githubusercontent.com/109318929/188900493-e2c4666a-2299-424f-bd62-1712567de897.png)
 
