@@ -43,22 +43,22 @@
 	3.2 Criação de chaves
 	Crie uma chave SSH do tipo ECDSA (qualquer tamanho) para o usuário vagrant. Em seguida, use essa mesma chave para acessar a VM:
 	
-		- no client, criar uma pasta oculta '.ssh' no perfil do usuario e executar o comando 'ssh-keygen -t ecdsa -C "vagrant@192.168.0.84"'
-		- ainda no cliente, usar o comando -> 'ssh-copy-id vagrant@192.168.0.84', informar a senha do usuario 'vagrant'
+		1- no client, criar uma pasta oculta '.ssh' no perfil do usuario e executar o comando 'ssh-keygen -t ecdsa -C "vagrant@192.168.0.84"'
+		2- ainda no cliente, usar o comando -> 'ssh-copy-id vagrant@192.168.0.84', informar a senha do usuario 'vagrant'
 	
 	![image](https://user-images.githubusercontent.com/109318929/188900161-53c15c37-9bc5-4a80-bd9f-ae91fd6c5e10.png)
 
 	3.3 Análise de logs e configurações ssh
 	Utilizando a chave do arquivos id_rsa-desafio-devel.gz.b64 deste repositório, acesso a VM com o usuário devel:
 	
-		– fiz a instalação do git na maquina do desafio e baixei a chave que foi disponibilizada. 
+		1 fiz a instalação do git na maquina do desafio e baixei a chave que foi disponibilizada. 
 		Em seguida, decodifiquei e descompactei a chave com o comando 'base64 -d id_rsa-desafio-linux-devel.gz.b64 | gzip -d > id_rsa'.
 		Dessa forma o conteúdo do arquivo pode ser copiado para um novo arquivo, resolvendo assim o problema relatado no log. 
 		A chave esta com carriage-return e devia estar com a newline.
-		- fiz também a mudança das permissões do arquivo authorized_keys para permissão de leitura e gravação apenas para o dono do arquivo.
-		- Usando o comando 'chmod 600 authorized_keys'.
-		- Em seguida, fiz um reset da senha do usuário devel, para conseguir fazer a cópia da chave para o computador cliente.
-		- Feito isso, usando os mesmos passos dos item 1, foi possível fazer logon com a conta de devel, como podemos ver abaixo
+		2- fiz também a mudança das permissões do arquivo authorized_keys para permissão de leitura e gravação apenas para o dono do arquivo.
+		3- Usando o comando 'chmod 600 authorized_keys'.
+		4- Em seguida, fiz um reset da senha do usuário devel, para conseguir fazer a cópia da chave para o computador cliente.
+		5- Feito isso, usando os mesmos passos dos item 1, foi possível fazer logon com a conta de devel, como podemos ver abaixo
 	
 	![image](https://user-images.githubusercontent.com/109318929/188900493-e2c4666a-2299-424f-bd62-1712567de897.png)
 
@@ -68,15 +68,15 @@
 	Identifique e corrija os erros na inicialização do servico nginx. Em seguida, execute o comando abaixo (exatamente como está) e apresente o resultado. Note que o comando não deve falhar.
 	curl http://127.0.0.1
 	
-		- para acessar a url http://127.0.0.1, deve-se primeiramente, analisar o arquivo nginx.conf e procurar por erros de configuração. 
-		- Pode-se perceber a falta de um ';' no final da linha 42 'root         /usr/share/nginx/html'.
-		- alterar a porta de conexão para 80 (padrão http), nas linhas 39 e 40 e salvar o arquivo
+		1- para acessar a url http://127.0.0.1, deve-se primeiramente, analisar o arquivo nginx.conf e procurar por erros de configuração. 
+		2- Pode-se perceber a falta de um ';' no final da linha 42 'root         /usr/share/nginx/html'.
+		3- alterar a porta de conexão para 80 (padrão http), nas linhas 39 e 40 e salvar o arquivo
 
 	![image](https://user-images.githubusercontent.com/109318929/188902229-e83062dc-6c40-480d-95b9-ca82f9208874.png)
 
-		- reiniciar o serviço do nginx, com o comando -> 'systemctl restart nginx'
-		- colocar o serviço para iniciar automaticamente -> 'systemctl enable nginx'
-		- testar o acesso usando o comando 'curl http://127.0.0.1' a saída será 'Duas palavrinhas pra você: para, béns!'
+		1- reiniciar o serviço do nginx, com o comando -> 'systemctl restart nginx'
+		2- colocar o serviço para iniciar automaticamente -> 'systemctl enable nginx'
+		3- testar o acesso usando o comando 'curl http://127.0.0.1' a saída será 'Duas palavrinhas pra você: para, béns!'
 		
 	![image](https://user-images.githubusercontent.com/109318929/188902759-e4f06b10-c1c1-4874-b53f-b377029c7c20.png)
 
@@ -97,24 +97,24 @@
 	Faço o comando abaixo funcionar:
 	ping 8.8.8.8
 	
-	 	 - nada precisou ser feito. o comando 'ping' foi executado com sucesso, tendo como saída o resultado abaixo:	
+	 	 1- nada precisou ser feito. o comando 'ping' foi executado com sucesso, tendo como saída o resultado abaixo:	
 	
 	![image](https://user-images.githubusercontent.com/109318929/188902903-b4b898e9-bf33-42af-bc16-9293eb4ef46b.png)	
 
   6.2 HTTP
 	Apresente a resposta completa, com headers, da URL https://httpbin.org/response-headers?hello=world
 	
-		- usando o comando ‘curl -i https://httpbin.org/response-headers?hello=world’, foi exibido o conteúdo abaixo:
+		1- usando o comando ‘curl -i https://httpbin.org/response-headers?hello=world’, foi exibido o conteúdo abaixo:
 		
 ![image](https://user-images.githubusercontent.com/109318929/188903037-275c7baa-e134-4f36-a61d-05e235d1d89d.png)
 
   6.3 Logs
   Configure o logrotate para rotacionar arquivos do diretório /var/log/nginx
 
-		- acessar a pasta '/etc/logrotate.d'.
-		- Criar os arquivos com as informações de log de acesso e erro do nginx, 'nginx_acess' e 'nginx_error'.
-		- Configurar para rotacionar diariamente, como mostrado abaixo:
-		- testar as configurações com o comando 'logrotate -d /etc/logrotate.conf'
+		1- acessar a pasta '/etc/logrotate.d'.
+		2- Criar os arquivos com as informações de log de acesso e erro do nginx, 'nginx_acess' e 'nginx_error'.
+		3- Configurar para rotacionar diariamente, como mostrado abaixo:
+		4- testar as configurações com o comando 'logrotate -d /etc/logrotate.conf'
 
 ![image](https://user-images.githubusercontent.com/109318929/188903433-c37cbd77-9bb0-4cf8-a41e-f007fed503f1.png)
 
