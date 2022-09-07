@@ -43,10 +43,16 @@
 	3.1 Autenticação confiável
 	O servidor SSH está configurado para aceitar autenticação por senha. No entanto esse método é desencorajado pois apresenta alto nivel de fragilidade.
 	Voce deve desativar autenticação por senhas e permitir apenas o uso de par de chaves:
-		
+	
+		1- remover a permissão de login com senha, editando o arquivo 'sshd_config', no caminho '/etc/ssh' e localizar a entrada 'PasswordAuthentication yes', 			  alterar para 'no' e salvar o arquivo. em seguida reiniciar o serviço de ssh -> 'systemctl restart sshd'
+			
 	3.2 Criação de chaves
 	Crie uma chave SSH do tipo ECDSA (qualquer tamanho) para o usuário vagrant. Em seguida, use essa mesma chave para acessar a VM:
-		
+	
+		- no client, criar uma pasta oculta '.ssh' no perfil do usuario e executar o comando 'ssh-keygen -t ecdsa -C "vagrant@192.168.0.84"'
+		- ainda no cliente, usar o comando -> 'ssh-copy-id vagrant@192.168.0.84', informar a senha do usuario 'vagrant'
+	
+	
 	3.3 Análise de logs e configurações ssh
 	Utilizando a chave do arquivos id_rsa-desafio-devel.gz.b64 deste repositório, acesso a VM com o usuário devel:
 
