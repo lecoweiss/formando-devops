@@ -16,10 +16,6 @@
 
  ![image](https://user-images.githubusercontent.com/109318929/188898147-80f89931-d4d0-4264-9453-268af691af5e.png)
 
-
-
-
-
 2. Usuários
 	2.1 Criação de usuários
 	Crie um usuário com as seguintes características:
@@ -27,6 +23,20 @@
 	     ->	grupos: getup (principal, GID=2222) e bin
 	     ->	permissão sudo para todos os comandos, sem solicitação de senha.  	             
 		     	               	             
+1- criar o usuário 'getup' com o UID 1111 -> 'useradd -u 1111 getup'
+
+2- incluir o usuario 'getup' no grupo 'wheel' para ter permisssão de 'sudo' -> 'usermod -aG wheel getup'
+
+3- incluir o usuário 'getup' no grupo bin -> 'usermod -aG bin getup'
+
+4- modificar o GID do grupo getup para 2222 -> 'groupmod -g 2222 getup'
+
+5- incluir o usuário 'getup' no grupo getup -> 'usermod -aG getup getup'
+
+6- usando o comando 'visudo' incluir a informação do usuário 'getup' com os dados 'getup ALL=(ALL) NOPASSWD: ALL'
+
+![image](https://user-images.githubusercontent.com/109318929/188898632-476f385c-eeb1-43fe-bc94-b8d8bd75ce82.png) ![image](https://user-images.githubusercontent.com/109318929/188898653-07df3e45-2220-4ac1-9ac1-1ca985371cba.png)
+
 
 3. SSH
 	3.1 Autenticação confiável
