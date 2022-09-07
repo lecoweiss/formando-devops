@@ -7,8 +7,11 @@
 	- no prompt entrar com os comandos: 'chroot /sysroot/' e depois 'passwd root' para alterar a senha do usuário 'root'
 	- executar o comando 'touch /.autorelabel' para habilitar a reclassificação do SELinux.
 	- sair com o comando 'exit' e em seguida usar o comando 'reboot' para reiniciar o servidor.
+
 2- fazer logon com o usuário 'root' e alterar a senha do usuario 'vagrant' usando o comando 'passwd vagrant' alteramos a senha do usuário 'vagrant'
+
 3- ainda com o usuário root logado, incluir o usuário 'vagrant' no grupo 'wheel' para que ele volte a ter permissão de 'sudo' -> 'usermod -aG wheel vagrant'
+
 4- identificar o ip do servidor com o comando -> 'ip addr show dev eth1'
 
  ![image](https://user-images.githubusercontent.com/109318929/188898147-80f89931-d4d0-4264-9453-268af691af5e.png)
