@@ -36,7 +36,8 @@
 	O servidor SSH está configurado para aceitar autenticação por senha. No entanto esse método é desencorajado pois apresenta alto nivel de fragilidade.
 	Voce deve desativar autenticação por senhas e permitir apenas o uso de par de chaves:
 	
-		1- remover a permissão de login com senha, editando o arquivo 'sshd_config', no caminho '/etc/ssh' e localizar a entrada 'PasswordAuthentication yes', 			  alterar para 'no' e salvar o arquivo. em seguida reiniciar o serviço de ssh -> 'systemctl restart sshd'
+		1- remover a permissão de login com senha, editando o arquivo 'sshd_config', no caminho '/etc/ssh' e localizar a entrada 'PasswordAuthentication yes'.
+		2- alterar para 'no' e salvar o arquivo. em seguida reiniciar o serviço de ssh -> 'systemctl restart sshd'
 		
 	![image](https://user-images.githubusercontent.com/109318929/188900047-a8697d9e-1870-4114-891f-10a65a4ac734.png)
 
