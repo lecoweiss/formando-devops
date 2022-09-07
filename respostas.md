@@ -8,11 +8,8 @@
 			- no prompt entrar com os comandos: 'chroot /sysroot/' e depois 'passwd root' para alterar a senha do usuário 'root'
 			- executar o comando 'touch /.autorelabel' para habilitar a reclassificação do SELinux.
 			- sair com o comando 'exit' e em seguida usar o comando 'reboot' para reiniciar o servidor.
-	
 		2- fazer logon com o usuário 'root' e alterar a senha do usuario 'vagrant' usando o comando 'passwd vagrant' alteramos a senha do usuário 'vagrant'
-
 		3- ainda com o usuário root logado, incluir o usuário 'vagrant' no grupo 'wheel' para que ele volte a ter permissão de 'sudo' -> 'usermod -aG wheel vagrant'
-
 		4- identificar o ip do servidor com o comando -> 'ip addr show dev eth1'
 
 	 ![image](https://user-images.githubusercontent.com/109318929/188898147-80f89931-d4d0-4264-9453-268af691af5e.png)
@@ -54,10 +51,8 @@
 	3.3 Análise de logs e configurações ssh
 	Utilizando a chave do arquivos id_rsa-desafio-devel.gz.b64 deste repositório, acesso a VM com o usuário devel:
 	
-		– fiz a instalação do git na maquina do desafio e baixei a chave que foi disponibilizada. Em seguida, decodifiquei e descompactei a chave com o comando		‘ base64 -d id_rsa-desafio-linux-devel.gz.b64 | gzip -d > id_rsa, dessa forma o conteúdo do arquivo pode ser copiado para um novo arquivo, resolvendo 		assim o problema relatado no log. A chave esta com  carriage-return e devia estar com a newline.
-		
-		- fiz também a mudança das permissões do arquivo authorized_keys para permissão de leitura e gravação apenas para o dono do arquivo, usando o comando		    ‘chmod 600 authorized_keys.
-		
+		– fiz a instalação do git na maquina do desafio e baixei a chave que foi disponibilizada. Em seguida, decodifiquei e descompactei a chave com o comando		'base64 -d id_rsa-desafio-linux-devel.gz.b64 | gzip -d > id_rsa', dessa forma o conteúdo do arquivo pode ser copiado para um novo arquivo, resolvendo 		assim o problema relatado no log. A chave esta com carriage-return e devia estar com a newline.
+		- fiz também a mudança das permissões do arquivo authorized_keys para permissão de leitura e gravação apenas para o dono do arquivo, usando o comando		    'chmod 600 authorized_keys'.
 		- Em seguida, fiz um reset da senha do usuário devel, para conseguir fazer a cópia da chave para o computador cliente.
 		- Feito isso, usando os mesmos passos dos item 1, foi possível fazer logon com a conta de devel, como podemos ver abaixo
 	
